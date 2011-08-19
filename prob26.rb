@@ -20,18 +20,17 @@ def prob26(num)
   return mod.rindex(val) - mod.index(val)
 end
 
-def getprob26max(cnt)
-  max = 0
-  for i in 2..cnt
-    tmp = prob26(i)
-    max = (max >= tmp) ? max : tmp
-    # printf("i=%d max=%d\n", i, max)
+
+max = 0
+ans = 0
+for i in 2..1000
+  tmp = prob26(i)
+  if max < tmp
+    max = tmp
+    ans = i
   end
-  return max
+  # printf("i=%d max=%d\n", i, max)
 end
 
-if ARGV[0] == "max"
-  p getprob26max(ARGV[1].to_i)
-else
-  p prob26(ARGV[0].to_i)
-end
+p ans
+
